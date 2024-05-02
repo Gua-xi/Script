@@ -8,7 +8,6 @@ local function createESP(player)
     esp.Name = player.Name .. "_ESP"
     esp.Parent = game.Workspace
 
-    
     local playerColor = Color3.fromHSV(math.random(), 1, 1)
     esp.Color = playerColor
 
@@ -16,10 +15,10 @@ local function createESP(player)
     if player.Team ~= game.Players.LocalPlayer.Team then
         isDifferentTeam = true
     end
-	
+
     local label = Instance.new("BillboardGui")
-    label.Size = UDim2.new(0, 300, 0, 100)
-    label.StudsOffset = Vector3.new(0, 3, 0)
+    label.Size = UDim2.new(0, 200, 0, 50)
+    label.StudsOffset = Vector3.new(0, 2, 0)
     label.Name = "PlayerLabel"
     label.AlwaysOnTop = true
     label.Parent = esp
@@ -27,7 +26,7 @@ local function createESP(player)
     local textLabel = Instance.new("TextLabel")
     textLabel.Size = UDim2.new(1, 0, 1, 0)
     textLabel.BackgroundTransparency = 1
-    textLabel.TextColor3 = isDifferentTeam and Color3.new(1, 0, 0) or Color3.new(1, 1, 1)  -- Cor vermelha se estiver em time diferente
+    textLabel.TextColor3 = isDifferentTeam and Color3.new(1, 0, 0) or Color3.new(1, 1, 1)
     textLabel.TextStrokeTransparency = 0.5
     textLabel.TextScaled = true
     textLabel.Text = player.Name .. " - " .. math.floor((player.Character.HumanoidRootPart.Position - game.Workspace.CurrentCamera.CFrame.p).magnitude) .. "m"
